@@ -5,20 +5,19 @@ package FinalProject;
 
 	public class MovieTicketBooking {
 
-	    // ---------- Theatre layout: true = booked, false = available ----------
 	    static final int ROWS = 5;
 	    static final int COLS = 8;
 	    static boolean[][] seats = new boolean[ROWS][COLS];
 
-	    // ---------- Pricing ----------
+	  
 	    static final double BASE_PRICE = 150.0;
-	    static final double WEEKEND_SURCHARGE = 0.20; // +20% on Sat/Sun
+	    static final double WEEKEND_SURCHARGE = 0.20; 
 
-	    // ---------- Movie rating ----------
+	  
 	    static double ratingSum = 0;
 	    static int ratingCount = 0;
 
-	    // ---------- Bookings ----------
+	  
 	    static class Booking {
 	        int id;
 	        ArrayList<int[]> seatList = new ArrayList<>();
@@ -30,7 +29,7 @@ package FinalProject;
 
 	    static Scanner sc = new Scanner(System.in);
 
-	    // ===================== Module 1: Show available seats =====================
+	    
 	    static void showSeats() {
 	    	
 	    	
@@ -52,13 +51,13 @@ package FinalProject;
 	        System.out.println("\n[ ] Available   [X] Booked");
 	    }
 
-	    // ===================== Module 5: Weekend pricing =====================
-	    static double getTicketPrice(int day) { // 1 = Mon ... 7 = Sun
+	  
+	    static double getTicketPrice(int day) { 
 	        boolean weekend = (day == 6 || day == 7);
 	        return weekend ? BASE_PRICE * (1 + WEEKEND_SURCHARGE) : BASE_PRICE;
 	    }
 
-	    // ===================== Module 4: Discount coupon =====================
+
 	    static double getDiscountPercent(String code) {
 	        switch (code.toUpperCase()) {
 	            case "SAVE10":  return 10;
@@ -68,7 +67,7 @@ package FinalProject;
 	        }
 	    }
 
-	    // ===================== Module 2: Book ticket =====================
+	   
 	    static void bookTicket() {
 	        System.out.print("Show day (1=Mon ... 7=Sun): ");
 	        int day = sc.nextInt();
@@ -112,7 +111,7 @@ package FinalProject;
 	                } else if (seats[r][c]) {
 	                    System.out.println("Seat already booked. Choose another.");
 	                } else {
-	                    seats[r][c] = true; // reserve immediately so duplicates are caught
+	                    seats[r][c] = true; 
 	                    b.seatList.add(new int[]{r, c});
 	                    break;
 	                }
@@ -145,7 +144,7 @@ package FinalProject;
 	        System.out.printf("%nAmount paid: Rs. %.2f%n", total);
 	    }
 
-	    // ===================== Module 3: Cancel ticket =====================
+	  
 	    static void cancelTicket() {
 	        System.out.print("Enter Booking ID: ");
 	        int id = sc.nextInt();
@@ -162,7 +161,7 @@ package FinalProject;
 	        System.out.println("Booking ID not found.");
 	    }
 
-	    // ===================== Module 6: Movie rating =====================
+	  
 	    static void rateMovie() {
 	        System.out.print("Rate the movie (1-5): ");
 	        int rating = sc.nextInt();
@@ -184,7 +183,7 @@ package FinalProject;
 	        }
 	    }
 
-	    // ===================== Main menu =====================
+	    
 	    public static void main(String[] args) {
 	        int choice;
 	        do {
